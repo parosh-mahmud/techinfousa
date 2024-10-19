@@ -3,11 +3,11 @@ module.exports = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  target: "serverless",
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;
     }
     return config;
   },
+  trailingSlash: true, // This helps in generating static files with a trailing slash
 };
