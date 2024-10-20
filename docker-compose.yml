@@ -1,0 +1,11 @@
+version: "3"
+services:
+  nextjs-app:
+    build: .
+    ports:
+      - "3000:3000" # Maps container's port 3000 to host's port 3000
+    restart: always # Restarts the container automatically if it crashes
+    environment:
+      - NODE_ENV=production # Set environment to production
+    volumes:
+      - .:/app # Syncs current directory with the container's /app directory
