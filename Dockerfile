@@ -19,8 +19,6 @@ RUN yarn build
 # Expose the port on which Next.js will run (default: 3000)
 EXPOSE 3000
 
-# Set environment variables if you have any in your .env file
-COPY .env .env
 
 # Start the Next.js server in production mode
 CMD ["yarn", "start"]
