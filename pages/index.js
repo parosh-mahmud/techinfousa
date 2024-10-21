@@ -28,43 +28,43 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Nextly - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>TechInfoUSA - Technology Solutions & Consulting</title>
         <meta
           name="description"
-          content="Nextly is a free landing page template built with next.js & Tailwind CSS"
+          content="TechInfoUSA delivers innovative technology solutions, consulting, and training services to empower businesses and individuals."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar />
       <Hero />
-      <SectionTitle
-        pretitle="Nextly Benefits"
-        title=" Why should you use this landing page">
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
+      <SectionTitle pretitle="Our Expertise" title="Why Choose TechInfoUSA?">
+        TechInfoUSA provides a full spectrum of technology services, from expert
+        consulting to professional training. We help businesses and individuals
+        stay competitive in a rapidly changing tech environment, delivering
+        tailored solutions that meet your unique needs.
       </SectionTitle>
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
       <SectionTitle
-        pretitle="Watch a video"
-        title="Learn how to fullfil your needs">
-        This section is to highlight a promo or demo video of your product.
-        Analysts says a landing page with video has 3% more conversion rate. So,
-        don't forget to add one. Just like this.
+        pretitle="Explore Our Services"
+        title="Watch Our Solutions in Action"
+      >
+        This section highlights a video showcasing how TechInfoUSA can transform
+        your business with the latest technology solutions. Learn more about our
+        impact through this visual presentation.
       </SectionTitle>
       <Video />
-      <SectionTitle
-        pretitle="Testimonials"
-        title="Here's what our customers said">
-        Testimonails is a great way to increase the brand trust and awareness.
-        Use this section to highlight your popular customers.
+      <SectionTitle pretitle="Client Success" title="What Our Clients Say">
+        Our clients’ testimonials speak volumes about our commitment to quality.
+        Discover how TechInfoUSA has helped organizations achieve their business
+        goals through innovative solutions.
       </SectionTitle>
       <Testimonials />
       <SectionTitle pretitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
+        Do you have questions about our services, consulting, or training
+        programs? Find the answers here to learn more about how TechInfoUSA can
+        support your business growth.
       </SectionTitle>
       <Faq />
       <Cta />

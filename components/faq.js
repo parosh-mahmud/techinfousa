@@ -35,21 +35,24 @@ export default function Faq() {
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
-  },
-  {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, this you can.",
-  },
-  {
-    question: "What is your refund policy? ",
+    question:
+      "Is TechInfoUSA's consulting service customizable for my business?",
     answer:
-      "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
+      "Yes, we tailor our consulting services to meet the specific needs and challenges of your business, ensuring the best possible outcomes.",
   },
   {
-    question: "Do you offer technical support? ",
+    question: "Do you offer technical training and certification?",
     answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
+      "Yes, TechInfoUSA offers a variety of technical training programs, complete with certifications to help you or your team stay current with the latest technologies.",
+  },
+  {
+    question: "What industries does TechInfoUSA serve?",
+    answer:
+      "TechInfoUSA provides technology solutions across multiple industries, including finance, healthcare, retail, and manufacturing, among others.",
+  },
+  {
+    question: "How can I contact TechInfoUSA for support?",
+    answer:
+      "You can reach our support team via email at support@techinfousa.com. We also offer priority support through our paid plans.",
   },
 ];

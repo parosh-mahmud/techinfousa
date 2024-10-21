@@ -14,41 +14,43 @@ export default function Testimonials() {
         <div className="lg:col-span-2 xl:col-auto">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Share a real <Mark>testimonial</Mark>
-              that hits some of your benefits from one of your popular
-              customers.
+              TechInfoUSA provided us with exceptional service. Their{" "}
+              <Mark>expertise</Mark> in technology consulting helped us
+              streamline our processes and grow our business.
             </p>
             <Avatar
               // Use imported image if it works, otherwise fall back to direct path
               image={"/img/user1.jpg"}
-              name="Sarah Steiner"
-              title="VP Sales at Google"
+              name="Sarah Johnson"
+              title="VP Operations at Alpha Corp"
             />
           </div>
         </div>
         <div>
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Make sure you only pick the <Mark>right sentence</Mark>
-              to keep it short and simple.
+              The training programs from TechInfoUSA were{" "}
+              <Mark>invaluable</Mark>. Our team gained the skills needed to
+              implement cutting-edge solutions.
             </p>
             <Avatar
               image={"/img/user2.jpg"}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
+              name="Michael Lee"
+              title="Lead Developer at Innovate Tech"
             />
           </div>
         </div>
         <div>
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              This is an <Mark>awesome</Mark> landing page template I've seen. I
-              would use this for anything.
+              TechInfoUSA's consulting services transformed our approach to
+              technology. Their <Mark>guidance</Mark> was crucial to our
+              success.
             </p>
             <Avatar
               image={"/img/user3.jpg"}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
+              name="Jessica Parker"
+              title="CEO at Bright Solutions"
             />
           </div>
         </div>
