@@ -1,5 +1,6 @@
 # Use the official Node image as a base image
-FROM node:18-alpine
+FROM node:18
+
 
 # Install build tools needed by Alpine for WebAssembly or native modules (like mozjpeg)
 RUN apk add --no-cache libc6-compat build-base python3
