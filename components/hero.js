@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Container from "./container";
-import heroImg from "../public/img/hero.png"; // You can update this image to reflect your business
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import heroImg1 from "../public/img/user1.jpg";
+import heroImg2 from "../public/img/user1.jpg";
+import heroImg3 from "../public/img/user3.jpg"; // Add more images as needed
 
 export default function Hero() {
   return (
@@ -30,6 +34,10 @@ export default function Hero() {
             <h2 className="text-2xl font-bold text-indigo-600">
               Future-proof your business with our top-notch tech services!
             </h2>
+            <h3 className="text-2xl font-bold text-gray-700 dark:text-white mt-5">
+              The Power of the Best Software and Consulting Services for Career
+              and Business Advantage!
+            </h3>
             <p className="py-3 text-lg font-semibold text-gray-700 dark:text-gray-300">
               <span className="line-through">$999</span> $799{" "}
               <span className="text-xs">(limited-time offer)</span>
@@ -43,16 +51,49 @@ export default function Hero() {
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
-          <div className="hidden lg:block">
-            <Image
-              src={heroImg}
-              width="616"
-              height="617"
-              alt="Hero Illustration"
-              layout="intrinsic"
-              loading="eager"
-              placeholder="blur"
-            />
+          <div className="w-full">
+            <Carousel
+              showArrows={true}
+              autoPlay={true}
+              infiniteLoop={true}
+              interval={5000}
+              showThumbs={false}
+              showStatus={false}
+            >
+              <div>
+                <Image
+                  src={heroImg1}
+                  width="616"
+                  height="617"
+                  alt="Hero Illustration 1"
+                  layout="intrinsic"
+                  loading="eager"
+                  placeholder="blur"
+                />
+              </div>
+              <div>
+                <Image
+                  src={heroImg2}
+                  width="616"
+                  height="617"
+                  alt="Hero Illustration 2"
+                  layout="intrinsic"
+                  loading="eager"
+                  placeholder="blur"
+                />
+              </div>
+              <div>
+                <Image
+                  src={heroImg3}
+                  width="616"
+                  height="617"
+                  alt="Hero Illustration 3"
+                  layout="intrinsic"
+                  loading="eager"
+                  placeholder="blur"
+                />
+              </div>
+            </Carousel>
           </div>
         </div>
       </Container>
