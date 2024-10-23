@@ -5,9 +5,7 @@ import "../css/tailwind.css";
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
