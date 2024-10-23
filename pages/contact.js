@@ -10,8 +10,24 @@ export default function ContactUs() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-    // You can add the API submission logic here if needed.
+    try {
+      const response = await fetch("/api/contactmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert("Message has been sent successfully!");
+      } else {
+        alert("Failed to send the message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("There was an error sending your message.");
+    }
   };
 
   return (
@@ -92,7 +108,7 @@ export default function ContactUs() {
                       {...register("phone", {
                         required: "Phone number is required",
                         pattern: {
-                          value: /^[0-9]{10}$/,
+                          value: /^01[0-9]{9}$/,
                           message: "Phone number is not valid",
                         },
                       })}
