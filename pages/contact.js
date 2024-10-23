@@ -155,15 +155,15 @@ export default function ContactUs() {
               <ul className="mt-6 text-gray-600">
                 <li className="flex items-center mb-4">
                   <FiPhone className="text-gray-500 w-6 h-6 mr-2" />
-                  <span>+1 234 567 8900</span>
+                  <span>+215-921-1586</span>
                 </li>
                 <li className="flex items-center mb-4">
                   <FiMail className="text-gray-500 w-6 h-6 mr-2" />
-                  <span>support@techinfousa.com</span>
+                  <span>info@techinfousa.com</span>
                 </li>
                 <li className="flex items-center">
                   <FiMessageSquare className="text-gray-500 w-6 h-6 mr-2" />
-                  <span>1234 TechInfo Street, Suite 500, NY, USA</span>
+                  <span>4017 Ludlow Street, Philadelphia, PA 19104,USA</span>
                 </li>
               </ul>
             </div>
