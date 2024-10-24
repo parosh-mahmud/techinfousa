@@ -36,7 +36,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <SectionTitle pretitle="Our Expertise" title="Why Choose TechInfoUSA?">
         TechInfoUSA provides a full spectrum of technology services, from expert
@@ -68,7 +68,7 @@ export default function Home() {
       </SectionTitle>
       <Faq />
       <Cta />
-      <Footer />
+      {/* <Footer /> */}
       <PopupWidget />
     </>
   );

@@ -84,7 +84,7 @@ export default function CustomNavbar() {
   };
 
   return (
-    <header className="bg-blue-200">
+    <header className="bg-blue-300">
       {/* Top bar */}
       <div className="container mx-auto flex justify-between items-center py-2 px-4 border-b-1 border-indigo-600">
         {/* Logo Section */}
@@ -113,7 +113,7 @@ export default function CustomNavbar() {
             <a className="hover:text-blue-500">ABOUT US</a>
           </Link>
           <span>|</span>
-          <span>215-921-1586</span>
+          <span>267-969-9976</span>
           <span>|</span>
           <Link href="/contact">
             <a className="hover:text-blue-500">CONTACT US</a>

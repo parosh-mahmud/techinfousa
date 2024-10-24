@@ -12,8 +12,9 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Inter", ...defaultTheme.fontFamily.sans],
-      stock: [defaultTheme.fontFamily.sans],
+      // sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      sans: ["Inter", "sans-serif"],
+      // stock: [defaultTheme.fontFamily.sans],
     },
   },
   variants: {
