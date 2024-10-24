@@ -7,30 +7,126 @@ import {
   CardContent,
   CardMedia,
   Box,
+  Button,
+  IconButton,
 } from "@mui/material";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+  FaYoutube,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function AboutUs() {
   return (
     <Container>
       {/* About Us Heading */}
-      <Box my={5}>
-        <Typography variant="h2" align="center" gutterBottom>
+      <Box my={5} sx={{ textAlign: "center", py: 3 }}>
+        <Typography
+          variant="h2"
+          gutterBottom
+          sx={{
+            fontWeight: "bold",
+            fontSize: { xs: "2rem", md: "3.5rem" }, // Responsive font sizes
+            letterSpacing: 2,
+            color: "rgba(0, 51, 102, 0.85)", // Professional deep color tone
+          }}
+        >
           About Us
         </Typography>
+
+        {/* Subtle Divider */}
+        <Box
+          component="div"
+          sx={{
+            width: 80,
+            height: 4,
+            backgroundColor: "primary.main", // Themed color for the divider
+            mx: "auto",
+            mb: 2,
+          }}
+        />
       </Box>
 
-      {/* Our Vision Section */}
+      {/* Hero Section (Text on Left, Image on Right) */}
       <Box my={5}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Our Vision
-        </Typography>
-        <Typography variant="body1" align="center">
-          At Techinfousa, we envision a world where small business owners can
-          maximize their business growth through transformative technologies. We
-          aim to revolutionize traditional processes, like accounting, by
-          empowering businesses with software that not only assesses the past
-          but also accelerates future success.
-        </Typography>
+        <Grid container spacing={4} alignItems="center">
+          {/* Text Section (Left Side) */}
+          <Grid item xs={12} md={6}>
+            <Typography variant="h3" fontWeight="bold">
+              Hello, I'm Shariful Islam.
+            </Typography>
+            <Typography
+              variant="h5"
+              fontWeight="bold"
+              color="textSecondary"
+              gutterBottom
+            >
+              Founder of TechInfoUSA.
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              I've been providing consultation and guidance on
+              <span style={{ color: "red" }}> Accessibility </span>
+              solutions professionally and as part of my practice for more than
+              four years now. My work ensures that digital experiences are
+              inclusive and accessible to everyone, regardless of abilities.
+            </Typography>
+
+            {/* Buttons */}
+            <Box mt={4}>
+              <Button
+                variant="contained"
+                color="error"
+                size="large"
+                sx={{ marginRight: 2 }}
+              >
+                Let's Talk
+              </Button>
+              <Button variant="text" color="primary" size="large">
+                Check My Blog
+              </Button>
+            </Box>
+
+            {/* Social Icons */}
+            <Box mt={4} display="flex" alignItems="center">
+              <IconButton color="error">
+                <FaFacebookF />
+              </IconButton>
+              <IconButton color="error">
+                <FaInstagram />
+              </IconButton>
+              <IconButton color="error">
+                <FaTwitter />
+              </IconButton>
+              <IconButton color="error">
+                <FaLinkedinIn />
+              </IconButton>
+              <IconButton color="error">
+                <FaYoutube />
+              </IconButton>
+              <IconButton color="error">
+                <FaEnvelope />
+              </IconButton>
+            </Box>
+          </Grid>
+
+          {/* Image Section (Right Side) */}
+          <Grid item xs={12} md={6}>
+            <CardMedia
+              component="img"
+              alt="Shariful Islam"
+              sx={{
+                height: 600,
+                width: "90%",
+                objectFit: "fill",
+                borderRadius: "10px",
+              }}
+              image="https://res.cloudinary.com/dpudfjkoq/image/upload/v1729776475/image0-removebg-preview_sqgmu2.png"
+            />
+          </Grid>
+        </Grid>
       </Box>
 
       {/* Our Values Section */}
@@ -100,7 +196,7 @@ export default function AboutUs() {
         </Typography>
       </Box>
 
-      {/* Team Section */}
+      {/* Meet Our Team Section */}
       <Box my={5}>
         <Typography variant="h4" align="center" gutterBottom>
           Meet Our Team
@@ -112,17 +208,16 @@ export default function AboutUs() {
             <Card sx={{ textAlign: "center" }}>
               <CardMedia
                 component="img"
-                alt="Shariful islam"
+                alt="Shariful Islam"
                 sx={{
                   height: 150,
                   width: 150,
-                  objectFit: "cover", // Focuses on the face
-                  objectPosition: "top", // Ensure the top part is prioritized
-                  borderRadius: "50%", // Make the image round
-                  opacity: 0.9, // Slight transparency effect
-                  mx: "auto", // Center image horizontally
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  opacity: 0.9,
+                  mx: "auto",
                 }}
-                image="https://res.cloudinary.com/dpudfjkoq/image/upload/v1729771456/shariful_hy5tcp.jpg"
+                image="https://res.cloudinary.com/dpudfjkoq/image/upload/v1729776475/image0-removebg-preview_sqgmu2.png"
               />
               <CardContent>
                 <Typography variant="h6">Shariful Islam</Typography>
@@ -147,11 +242,10 @@ export default function AboutUs() {
                 sx={{
                   height: 150,
                   width: 150,
-                  objectFit: "cover", // Focuses on the face
-                  objectPosition: "top", // Ensure the top part is prioritized
-                  borderRadius: "50%", // Make the image round
-                  opacity: 0.9, // Slight transparency effect
-                  mx: "auto", // Center image horizontally
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  opacity: 0.9,
+                  mx: "auto",
                 }}
                 image="https://res.cloudinary.com/dpudfjkoq/image/upload/v1729771472/parosh_qbnquy.jpg"
               />
@@ -175,11 +269,10 @@ export default function AboutUs() {
                 sx={{
                   height: 150,
                   width: 150,
-                  objectFit: "cover", // Focuses on the face
-                  objectPosition: "left", // Ensure the top part is prioritized
-                  borderRadius: "50%", // Make the image round
-                  opacity: 0.9, // Slight transparency effect
-                  mx: "auto", // Center image horizontally
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  opacity: 0.9,
+                  mx: "auto",
                 }}
                 image="https://res.cloudinary.com/dpudfjkoq/image/upload/v1729771471/sojib_opvo9z.jpg"
               />
