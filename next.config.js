@@ -1,7 +1,6 @@
 module.exports = {
   images: {
-    domains: ["plus.unsplash.com", "source.unsplash.com"], // Add the allowed domains here
-    unoptimized: true,
+    domains: ["res.cloudinary.com"], // Add Cloudinary or any other domains you use
   },
   i18n: {
     locales: ["en"],

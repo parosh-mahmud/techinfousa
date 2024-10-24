@@ -27,35 +27,29 @@ export default function Hero() {
               high-performance solutions, we partner with you to bring your
               vision to life and drive digital transformation.
             </p>
-            <h2 className="text-2xl font-bold text-indigo-600">
-              Future-proof your business with our top-notch tech services!
-            </h2>
-            <h3 className="text-2xl font-bold text-gray-700 dark:text-white mt-5">
+
+            <h3 className="text-2xl font-bold text-gray-700 dark:text-white mb-5">
               The Power of the Best Software and Consulting Services for Career
               and Business Advantage!
             </h3>
-            <p className="py-3 text-lg font-semibold text-gray-700 dark:text-gray-300">
-              <span className="line-through">$999</span> $799{" "}
-              <span className="text-xs">(limited-time offer)</span>
-            </p>
+
             <a
               href="#contact"
               className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md"
             >
-              Get Started
+              Take Services
             </a>
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="hidden lg:block">
             <Image
-              src={heroImg}
+              src="https://res.cloudinary.com/dpudfjkoq/image/upload/v1729775297/14622-removebg-preview_dfmlum.png"
               width="616"
               height="617"
               alt="Hero Illustration"
               layout="intrinsic"
               loading="eager"
-              placeholder="blur"
             />
           </div>
         </div>
