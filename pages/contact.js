@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FiMail, FiPhone, FiUser, FiMessageSquare } from "react-icons/fi";
+import {
+  FiMail,
+  FiPhone,
+  FiUser,
+  FiMessageSquare,
+  FiPaperclip,
+} from "react-icons/fi";
 
 export default function ContactUs() {
+  const [file, setFile] = useState(null); // Use local state to handle file
+
   const {
     register,
     handleSubmit,
@@ -10,23 +18,31 @@ export default function ContactUs() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("message", data.message);
+
+    // Append file if it exists
+    if (file) {
+      formData.append("file", file); // Attach file from state
+    }
+
     try {
       const response = await fetch("/api/contactmail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        body: formData, // Send the FormData object
       });
 
       if (response.ok) {
-        alert("Message has been sent successfully!");
+        alert("Message sent successfully!");
       } else {
         alert("Failed to send the message.");
       }
     } catch (error) {
-      console.error("Error sending message:", error);
-      alert("There was an error sending your message.");
+      console.error("Error:", error);
+      alert("An error occurred.");
     }
   };
 
@@ -60,7 +76,6 @@ export default function ContactUs() {
                       placeholder="Full Name"
                       {...register("name", {
                         required: "Full name is required",
-                        minLength: { value: 2, message: "Name is too short" },
                       })}
                     />
                     {errors.name && (
@@ -107,10 +122,6 @@ export default function ContactUs() {
                       placeholder="Phone"
                       {...register("phone", {
                         required: "Phone number is required",
-                        pattern: {
-                          value: /^01[0-9]{9}$/,
-                          message: "Phone number is not valid",
-                        },
                       })}
                     />
                     {errors.phone && (
@@ -132,10 +143,6 @@ export default function ContactUs() {
                       placeholder="Your Message"
                       {...register("message", {
                         required: "Message is required",
-                        minLength: {
-                          value: 10,
-                          message: "Message must be at least 10 characters",
-                        },
                       })}
                     />
                     {errors.message && (
@@ -143,6 +150,21 @@ export default function ContactUs() {
                         {errors.message.message}
                       </p>
                     )}
+                  </div>
+                </div>
+
+                {/* File upload input */}
+                <div className="mb-6">
+                  <label className="block text-gray-700 text-sm font-semibold mb-2">
+                    Attach a file
+                  </label>
+                  <div className="relative">
+                    <FiPaperclip className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
+                    <input
+                      type="file"
+                      className="w-full py-3 pl-10 pr-4 bg-gray-100 rounded-md border border-gray-300 outline-none focus:ring-2 focus:ring-indigo-500"
+                      onChange={(e) => setFile(e.target.files[0])} // Capture file and set to state
+                    />
                   </div>
                 </div>
 
@@ -179,7 +201,7 @@ export default function ContactUs() {
                 </li>
                 <li className="flex items-center">
                   <FiMessageSquare className="text-gray-500 w-6 h-6 mr-2" />
-                  <span>4017 Ludlow Street, Philadelphia, PA 19104,USA</span>
+                  <span>4017 Ludlow Street, Philadelphia, PA 19104, USA</span>
                 </li>
               </ul>
             </div>

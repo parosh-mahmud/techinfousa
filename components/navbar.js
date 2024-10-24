@@ -194,8 +194,42 @@
 
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import {
+  Popover,
+  List,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
+  Box,
+} from "@mui/material";
+import { useState } from "react";
+import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import CodeIcon from "@mui/icons-material/Code";
+import BugReportIcon from "@mui/icons-material/BugReport";
+import BuildIcon from "@mui/icons-material/Build";
+import StorageIcon from "@mui/icons-material/Storage";
+import WorkIcon from "@mui/icons-material/Work";
+import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import BusinessIcon from "@mui/icons-material/Business";
+import ComputerIcon from "@mui/icons-material/Computer";
 
 export default function CustomNavbar() {
+  const [anchorElIT, setAnchorElIT] = useState(null);
+  const [anchorElTraining, setAnchorElTraining] = useState(null);
+  const [anchorElConsulting, setAnchorElConsulting] = useState(null);
+
+  const handlePopoverOpen = (event, setAnchor) => {
+    setAnchor(event.currentTarget);
+  };
+
+  const handlePopoverClose = (setAnchor) => {
+    setAnchor(null);
+  };
+
+  const openPopover = (anchorEl) => Boolean(anchorEl);
+
   return (
     <header className="bg-blue-300">
       {/* Top bar */}
@@ -218,43 +252,334 @@ export default function CustomNavbar() {
             </a>
           </Link>
 
-          {/* Theme Changer (optional, or can be moved elsewhere) */}
+          {/* Theme Changer */}
+          {/* Assuming you have a ThemeChanger component */}
           <ThemeChanger />
 
           {/* About and Contact Info */}
           <Link href="/about">
-            <a className="hover:underline">ABOUT US</a>
+            <a className="hover:text-blue-500">ABOUT US</a>
           </Link>
           <span>|</span>
           <span>215-921-1586</span>
           <span>|</span>
           <Link href="/contact">
-            <a className="hover:underline">CONTACT US</a>
+            <a className="hover:text-blue-500">CONTACT US</a>
           </Link>
         </div>
       </div>
 
       {/* Navigation Bar */}
       <nav className="bg-blue-300">
-        <div className="container mx-auto flex justify-center items-center py-2 text-lg text-black font-medium border-t-2 border-blue-400">
+        <div className="container mx-auto flex justify-center items-center py-2 text-lg text-black font-medium border-t-2 border-blue-400 space-x-4">
           <Link href="/">
-            <a className="hover:underline">Home</a>
+            <a className="hover:text-blue-500">Home</a>
           </Link>
-          <span className="mx-2">|</span>
-          <Link href="/services">
-            <a className="hover:underline">All Services</a>
-          </Link>
-          <span className="mx-2">|</span>
-          <Link href="/trainings">
-            <a className="hover:underline">Trainings</a>
-          </Link>
-          <span className="mx-2">|</span>
-          <Link href="/consulting">
-            <a className="hover:underline">Consulting</a>
-          </Link>
-          <span className="mx-2">|</span>
+          <span>|</span>
+
+          {/* IT Services Popover */}
+          <div>
+            <Box
+              aria-describedby="it-services-popover"
+              className="hover:text-blue-500 text-black"
+              onClick={(e) => handlePopoverOpen(e, setAnchorElIT)}
+            >
+              IT Services
+            </Box>
+            <Popover
+              id="it-services-popover"
+              open={openPopover(anchorElIT)}
+              anchorEl={anchorElIT}
+              onClose={() => handlePopoverClose(setAnchorElIT)}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "center",
+              }}
+              sx={{
+                "& .MuiPaper-root": {
+                  width: "250px",
+                  padding: "10px",
+                  marginTop: "10px",
+                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "12px",
+                },
+              }}
+            >
+              {/* IT Services List */}
+              <List>
+                <ListItem button component="a" href="/services/designing">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FF5722" }}>
+                      <DesignServicesIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Designing"
+                    secondary="UI/UX and graphic design"
+                  />
+                </ListItem>
+                <ListItem button component="a" href="/services/developing">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#2196F3" }}>
+                      <CodeIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Developing"
+                    secondary="Software and web development"
+                  />
+                </ListItem>
+                <ListItem button component="a" href="/services/testing">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#4CAF50" }}>
+                      <BugReportIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Testing"
+                    secondary="Software quality assurance"
+                  />
+                </ListItem>
+                <ListItem button component="a" href="/services/maintaining">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FFEB3B" }}>
+                      <BuildIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Maintaining"
+                    secondary="System and server maintenance"
+                  />
+                </ListItem>
+              </List>
+            </Popover>
+          </div>
+
+          <span>|</span>
+
+          {/* Training Popover */}
+          <div>
+            <Box
+              aria-describedby="training-popover"
+              className="hover:text-blue-500 text-black"
+              onClick={(e) => handlePopoverOpen(e, setAnchorElTraining)}
+            >
+              Trainings
+            </Box>
+            <Popover
+              id="training-popover"
+              open={openPopover(anchorElTraining)}
+              anchorEl={anchorElTraining}
+              onClose={() => handlePopoverClose(setAnchorElTraining)}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "center",
+              }}
+              sx={{
+                "& .MuiPaper-root": {
+                  width: "250px",
+                  padding: "10px",
+                  marginTop: "10px",
+                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "12px",
+                },
+              }}
+            >
+              {/* Training List */}
+              <List>
+                <ListItem button component="a" href="/training/manual-testing">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FF9800" }}>
+                      <BugReportIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Manual Testing"
+                    secondary="Test strategies and procedures"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/training/accessibility-testing"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FF9800" }}>
+                      <BugReportIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Accessibility Testing"
+                    secondary="Inclusive design strategies"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/training/automation-testing"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FF9800" }}>
+                      <StorageIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Automation Testing"
+                    secondary="Automated testing frameworks"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/training/freelancing-career"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FF9800" }}>
+                      <WorkIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Freelancing Career"
+                    secondary="Start your freelancing journey"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/training/server-implementation-testing"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#FF9800" }}>
+                      <ComputerIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Server Implementation & Testing"
+                    secondary="Server deployment strategies"
+                  />
+                </ListItem>
+              </List>
+            </Popover>
+          </div>
+
+          <span>|</span>
+
+          {/* Consulting Popover */}
+          <div>
+            <Box
+              aria-describedby="consulting-popover"
+              className="hover:text-blue-500 text-black"
+              onClick={(e) => handlePopoverOpen(e, setAnchorElConsulting)}
+            >
+              Consulting
+            </Box>
+            <Popover
+              id="consulting-popover"
+              open={openPopover(anchorElConsulting)}
+              anchorEl={anchorElConsulting}
+              onClose={() => handlePopoverClose(setAnchorElConsulting)}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "center",
+              }}
+              sx={{
+                "& .MuiPaper-root": {
+                  width: "250px",
+                  padding: "10px",
+                  marginTop: "10px",
+                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "12px",
+                },
+              }}
+            >
+              {/* Consulting List */}
+              <List>
+                <ListItem button component="a" href="/consulting/it-career">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#4CAF50" }}>
+                      <BusinessIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="IT Industries Career"
+                    secondary="Technology sector opportunities"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/consulting/banking-sectors"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#4CAF50" }}>
+                      <BusinessIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Banking Sectors"
+                    secondary="Consulting for finance and banking"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/consulting/insurance-fields"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#4CAF50" }}>
+                      <BusinessIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Insurance Fields"
+                    secondary="Insurance industry insights"
+                  />
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="/consulting/medical-departments"
+                >
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#E91E63" }}>
+                      <MedicalServicesIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Medical Departments"
+                    secondary="Healthcare consulting services"
+                  />
+                </ListItem>
+                <ListItem button component="a" href="/consulting/manufacturer">
+                  <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: "#4CAF50" }}>
+                      <BusinessIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Manufacturer"
+                    secondary="Manufacturing industry consulting"
+                  />
+                </ListItem>
+              </List>
+            </Popover>
+          </div>
+
+          <span>|</span>
           <Link href="/freelancing">
-            <a className="hover:underline">Freelancing</a>
+            <a className="hover:text-blue-500">Freelancing</a>
           </Link>
         </div>
       </nav>
